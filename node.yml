@@ -12,5 +12,25 @@ services:
     networks:
       - nnet
 
+  monitor:
+    image: buythewhale/ethstats_monitor
+    volumes:
+      - ./monitor/app.json:/home/ethnetintel/eth-net-intelligence-api/app.json:ro
+    networks:
+      - nnet
+    depends_on:
+      - parity
+
+  dashboard:
+    image: buythewhale/ethstats
+    volumes:
+      - ./dashboard/ws_secret.json:/eth-netstats/ws_secret.json:ro
+    ports:
+      - 3001:3000
+    networks:
+      - nnet
+    depends_on:
+      - parity
+
 networks:
   nnet:
