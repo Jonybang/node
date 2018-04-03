@@ -1,5 +1,5 @@
 [parity]
-chain = "/config/spec.json"
+chain = "./spec.json"
 base_path = "/data"
 db_path = "/data/chains"
 keys_path = "/data/keys"
@@ -21,7 +21,7 @@ fat_db = "on"
 pruning = "archive"
 
 [network]
-reserved_peers = "/config/bootnodes.txt"
+reserved_peers = "./bootnodes.txt"
 
 [ui]
 interface = "127.0.0.1"

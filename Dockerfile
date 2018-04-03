@@ -1,18 +1,23 @@
-MAINTAINER Jonybang <jonybange@gmail.com>
+#MAINTAINER Jonybang <jonybange@gmail.com>
 
-FROM ubuntu:latest
+FROM parity/parity:v1.9.4
 
-CMD ["docker-compose", "-f", "node.yml", "up"]
+#VOLUME ["./config:/config:ro"]
+ADD ./config .
 
-ARG BUILD_DATE
+CMD ["--config", "./config.dev.toml"]
 
-LABEL org.label-schema.build-date="$BUILD_DATE" \
-      org.label-schema.name="Kenigtech node" \
-      org.label-schema.license="WTFPL" \
-      org.label-schema.description="Docker container for Kenigtech node" \
-      org.label-schema.url="https://kenig.kenig" \
-      org.label-schema.vcs-url="https://github.com/Jonybang/node" \
-      org.label-schema.vcs-type="Git" \
-      org.label-schema.vendor="Kenigtech" \
-      org.label-schema.schema-version="3" \
-      org.label-schema.docker.cmd="sysctl -w vm.max_map_count=262144;docker-compose up"
+EXPOSE 8545 8546
+
+#ARG BUILD_DATE
+#
+#LABEL org.label-schema.build-date="$BUILD_DATE" \
+#      org.label-schema.name="Kenigtech node" \
+#      org.label-schema.license="WTFPL" \
+#      org.label-schema.description="Docker container for Kenigtech node" \
+#      org.label-schema.url="https://kenig.kenig" \
+#      org.label-schema.vcs-url="https://github.com/Jonybang/node" \
+#      org.label-schema.vcs-type="Git" \
+#      org.label-schema.vendor="Kenigtech" \
+#      org.label-schema.schema-version="3" \
+#      org.label-schema.docker.cmd="sysctl -w vm.max_map_count=262144;docker-compose up"
