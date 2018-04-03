@@ -1,4 +1,9 @@
 MAINTAINER Jonybang <jonybange@gmail.com>
+
+FROM parity
+
+CMD ["docker-compose", "-f", "node.yml", "up"]
+
 ARG BUILD_DATE
 
 LABEL org.label-schema.build-date="$BUILD_DATE" \
