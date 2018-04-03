@@ -1,6 +1,6 @@
 MAINTAINER Jonybang <jonybange@gmail.com>
 
-FROM parity
+FROM ubuntu:latest
 
 CMD ["docker-compose", "-f", "node.yml", "up"]
 
