@@ -11,6 +11,11 @@ hosts = ["all"]
 apis = ["web3", "eth", "net", "parity", "traces", "rpc", "personal"]
 processing_threads = 4
 
+[ipc]
+disable = false
+path = "/data/jsonrpc.ipc"
+apis = ["web3", "eth", "net", "parity", "parity_accounts", "personal", "traces", "rpc", "secretstore"]
+
 [websockets]
 interface = "0.0.0.0"
 hosts = ["all"]

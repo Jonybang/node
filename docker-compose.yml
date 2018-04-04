@@ -4,6 +4,8 @@ services:
 
   parity:
     build: .
+    volumes:
+      - ./data:/data
 
   monitor:
     image: buythewhale/ethstats_monitor
@@ -18,5 +20,15 @@ services:
       - ./dashboard/ws_secret.json:/eth-netstats/ws_secret.json:ro
     ports:
       - 3001:3000
+    depends_on:
+      - parity
+
+  explorer:
+    image: jpoon/etherchain-light
+    volumes:
+      - ./explorer/config.js:/usr/src/app/config.js:ro
+      - ./data:/data
+    ports:
+      - 3002:3000
     depends_on:
       - parity
