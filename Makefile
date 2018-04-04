@@ -1,6 +1,6 @@
 ENV_VARS = `cat .env`
 
 up:
-	docker-compose -f node.yml up
+	docker-compose up
 down:
-	docker-compose -f node.yml down --volumes
+	docker-compose down --volumes
